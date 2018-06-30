@@ -14,10 +14,15 @@ public class TcpClient {
              DataInputStream inFromServer = new DataInputStream(inputStream);
              DataOutputStream outToServer = new DataOutputStream(outputStream)
         ){
+            System.out.println("Hello");
             while (true) {
                 System.out.print("Command : ");
                 try {
                     String temp = inFromUser.readLine();
+                    if (temp.equals("quit")){
+                        System.out.println("Bye");
+                        break;
+                    }
                     outToServer.writeUTF(temp);
                     outToServer.flush();
 
